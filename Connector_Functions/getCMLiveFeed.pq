@@ -11,7 +11,7 @@
 
 (School as text, CloudMISKey as text, LiveFeedKey as text) => let
     BasicAuth = School & ":" & CloudMISKey,
-    DataKey = Text.Replace(Text.Replace(LiveFeedKey,"%2b","+"),"%3b","="),
+    DataKey = Text.Replace(Text.Replace(Text.Replace(Text.Replace(LiveFeedKey,"%2b","+"),"%3b",";"),"%3d","="),"%2f","/"),
     Base64_Auth = Binary.ToText(Text.ToBinary(BasicAuth), BinaryEncoding.Base64),
     BaseUrl = "https://cloudmis.bromcom.com",
     RelativePath = "Nucleus/WebServices/ThirdParty/TPReportingService.asmx/getReportDataByKey",
@@ -40,3 +40,5 @@
     #"Reordered Columns" = Table.ReorderColumns(#"Removed Columns",{"VisionSchoolId", "Table"})
 in
     #"Reordered Columns"
+in
+  getCMLiveFeed
