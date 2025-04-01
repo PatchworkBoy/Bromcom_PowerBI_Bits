@@ -1,0 +1,21 @@
+// getEESapi
+// Retrieves data from explore-education-statistics API endpoints using Web.Contents connector
+//
+// Usage: getEESapi([endpoint],[dataset_id],[api_version],[data_set_version])
+//
+// Requires params:
+// endpoint    - csv | meta | query | summary
+// dataset id  - API data set ID found on listing at https://explore-education-statistics.service.gov.uk/data-catalogue?dataSetType=api 
+//    eg: dataset id for "Reasons for absence and attendance":   63629501-d3ca-c471-9780-ec4cb6fdf172
+// api_version - "v1"
+
+
+(endpoint as text, dataset_id as text, api_version as text) => let
+    BaseUrl = "https://api.education.gov.uk/statistics/",
+    RelativePath = api_version & "/data-sets/" & dataset_id & "/" & endpoint,
+    Options = [
+        RelativePath = RelativePath
+    ],
+    response = Web.Contents(BaseUrl, Options)
+in
+    response
