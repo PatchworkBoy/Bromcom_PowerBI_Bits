@@ -1,7 +1,7 @@
 // getEESapi
 // Retrieves data from explore-education-statistics API endpoints using Web.Contents connector
 //
-// Usage: getEESapi([endpoint],[dataset_id],[api_version],[data_set_version])
+// Usage: getEESapi([endpoint],[dataset_id],[api_version])
 //
 // Requires params:
 // endpoint    - csv | meta | query | summary
