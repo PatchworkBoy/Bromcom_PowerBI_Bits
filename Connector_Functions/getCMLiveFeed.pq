@@ -40,5 +40,4 @@
     #"Reordered Columns" = Table.ReorderColumns(#"Removed Columns",{"VisionSchoolId", "Table"})
 in
     #"Reordered Columns"
-in
-  getCMLiveFeed
+
