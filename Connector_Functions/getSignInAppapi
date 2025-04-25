@@ -1,12 +1,15 @@
-// getSignInAppapi - 
-// UserID = client public key
-// Secret = api secret key
+// getSignInAppapi
+//
+// Refer to https://signinapp.com/docs/client-api/client-setup.html#go-to-manage-api-client for generating relevant keys.
+//
+// PublicKey = client public key
+// SecretKey = api secret key
 // Endpoint = /groups (for example)
 //
 // See https://signinapp.com/docs/client-api/resource-endpoints.html
 
-(UserID as text, Secret as text, endpoint as text) => let
-    BasicAuth = UserID & ":" & Secret,
+(PublicKey as text, SecretKey as text, endpoint as text) => let
+    BasicAuth = PublicKey & ":" & SecretKey,
     Base64_Auth = Binary.ToText(Text.ToBinary(BasicAuth), BinaryEncoding.Base64),
     BaseUrl = "https://backend.signinapp.com/client-api/v1",
     RelativePath = endpoint,
@@ -14,7 +17,6 @@
         #"Content-Type"="application/json",
         Accept="application/json",
         Authorization = "Basic " & Base64_Auth
-
     ],
     Options = [
         Headers = Headers,
@@ -30,6 +32,6 @@
         if List.Contains({400, 404}, status_code)
         then response_metadata else buffered, 
     // returns either document else web request error
-        result = Json.Document(maybe_bytes)
+    result = Json.Document(maybe_bytes)
 in
-        result
+    result
