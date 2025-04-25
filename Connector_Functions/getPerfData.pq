@@ -2,6 +2,8 @@
 // Retrieves xlsx/csv tables from find-school-performance-data.service.gov.uk using Web.Contents connector.
 // DataSource should be set to [Anonymous]
 //
+// NB: NO LONGER WORKS - DfE BLOCK MICROSOFT BI SERVICE SERVERS (??)
+//
 // Usage: getPerfData([YearRef], [YearRef2], [Filter], [Format])
 //
 // YearRef (text): 2021-2022
