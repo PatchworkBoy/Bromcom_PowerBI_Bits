@@ -1,0 +1,75 @@
+// getBearer function
+(Key as text, User as text, Pass as text)=> let
+    BaseUrl = "https://api.8x8.com/analytics/work/v1/oauth/token",
+    postData = "username=" & User & "&password=" & Pass,
+    Body = Text.ToBinary(postData),
+    Headers = [
+        #"8x8-apikey" = Key,
+        #"Content-Type" = "application/x-www-form-urlencoded"
+    ],
+    Options = [
+        Headers = Headers,
+        Content = Body
+    ],
+    postResponse = (Web.Contents(BaseUrl, Options)),
+    response = Json.Document(postResponse)
+in
+    response[access_token]
+
+
+// Fetch function
+let
+    RecursiveFetch = (Url, scrollUrl, options, scroll, counter, pageCount) =>
+			let
+				TotalPageCount = pageCount,
+				Counter = if (counter = null) then 0 else counter,
+				Results = if (scroll = null) then            
+					Json.Document(Web.Contents(Url, options))
+				else
+					Json.Document(Web.Contents(scrollUrl&scroll, options)),
+				ParsedResults = Table.FromList(Results[data], Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				Return = if (Counter < TotalPageCount) then
+					ParsedResults & Fetch(Url, scrollUrl, options, Results[meta][scrollId], Counter+1, TotalPageCount)
+				else
+					ParsedResults 
+			in Return
+in
+    RecursiveFetch   
+
+
+// getCDRLegs function
+// Call this function, passing in username, password, pbxname, startdatetime (as "YYYY-MM-DD hh:mm:ss"), enddatetime, API key
+// This function will then call the getBearer and Fetch functions as required to handle oAuth authentication etc.
+// The user account used must have logged into 8x8 and visited their analytics at least once.
+
+let CDR = (username as text, password as text, pbxname as text, StartDateTime as text, EndDateTime as text, apikey as text) => let
+	BaseURL = "https://api.8x8.com/analytics/work/v2/call-records?",
+	EntitiesPerPage = 1000,
+	pageSize = "1000",
+	bearertoken = getBearer(apikey, username, password),
+	Options = [Headers = [ #"Authorization" = "Bearer " & bearertoken, #"8x8-apikey"=apikey, #"Content-Type"="application/json"]],
+	pbxid = pbxname,
+	startTime = StartDateTime,
+	endTime = EndDateTime,
+	timeZone = "Europe/London",
+	params = "pbxId=" & pbxid & "&startTime=" & startTime & "&endTime=" & endTime & "&timeZone=" & timeZone & "&pageSize=" & pageSize,
+	url = BaseURL&params,
+	scrollUrl = BaseURL&params & "&scrollId=",
+		GetJson = (Url) =>
+			let Options = [Headers=[ #"Authorization" = "Bearer " & bearertoken, #"8x8-apikey"=apikey, #"Content-Type"="application/json" ]],
+				RawData = Web.Contents(Url, Options),
+				Json    = Json.Document(RawData)
+			in  Json,
+		GetTotalRecords = () =>
+			let Url = BaseURL & params & "&pageSize=1",
+				Json  = GetJson(Url),
+				Count = Json[meta]
+			in  Count,
+	EntityCount = GetTotalRecords()[totalRecordCount],
+	PageCount   = Number.RoundUp(EntityCount / EntitiesPerPage),
+	Pages       = Fetch(url, scrollUrl, Options, null, null, PageCount),
+	Entities    = Pages
+in
+    Entities
+in 
+	CDR    
