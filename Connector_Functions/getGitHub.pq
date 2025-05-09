@@ -2,6 +2,8 @@
 // Retrieves csv tables from DfE Analytical Services GitHub using Web.Contents connector.
 // DataSource should be set to [Anonymous]
 //
+// These days you should be migrating from using this to using getEESapi
+//
 // Usage: getGitHub([FileName])
 //
 // Filename (text): EES_ytd_data.csv
