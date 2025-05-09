@@ -1,0 +1,23 @@
+// for use with Bromcom Partner API. Assumes ApplicationId and ApplicationSecret are set up as parameters via Manage Parameters.
+// Requires SchoolID and Endpoint (Table) name to be passed in to the function.
+
+let
+    Source = (SchoolID as text, Table as text) => let
+    URLAuth = "?applicationId=" & ApplicationId & "&applicationSecret=" & ApplicationSecret & "&schoolId=" & SchoolID,
+    BaseUrl = "https://api.bromcomcloud.com",
+    oDataSrc = "/" & Table,
+    Headers = [
+        Accept="text/plain"
+    ],
+    Options = [
+        RelativePath = oDataSrc & URLAuth,
+        Headers = Headers,
+        ManualStatusHandling = {400, 401, 403, 404}
+    ],
+    response = Json.Document(Web.Contents(BaseUrl, Options)),
+    TableConvert = Table.FromRecords({response}),
+    TableExpand = Table.ExpandListColumn(TableConvert, "data")
+in
+    TableExpand
+in
+    Source
