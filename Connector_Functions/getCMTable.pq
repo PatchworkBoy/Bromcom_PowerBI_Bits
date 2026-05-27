@@ -12,8 +12,8 @@
 (School as text, CloudMISKey as text, TableName as text) => let
     BasicAuth = School & ":" & CloudMISKey,
     Base64_Auth = Binary.ToText(Text.ToBinary(BasicAuth), BinaryEncoding.Base64),
-    BaseUrl = "https://cloudmis.bromcom.com",
-    RelativePath = "Nucleus/oData",
+    BaseUrl = "https://misodata.bromcom.com",
+    RelativePath = "/",
     oDataSrc = TableName,
     Headers = [
         Accept="application/json",
