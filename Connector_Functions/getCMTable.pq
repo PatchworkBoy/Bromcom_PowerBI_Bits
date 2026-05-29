@@ -13,7 +13,7 @@
     BasicAuth = School & ":" & CloudMISKey,
     Base64_Auth = Binary.ToText(Text.ToBinary(BasicAuth), BinaryEncoding.Base64),
     BaseUrl = "https://misodata.bromcom.com",
-    RelativePath = "/",
+    RelativePath = "",
     oDataSrc = TableName,
     Headers = [
         Accept="application/json",
