@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+	<edmx:DataServices>
+		<Schema Namespace="Bromcom.Nucleus.ODataAPI.Models.DataEntities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+			<EntityType Name="Student">
+				<Key>
+					<PropertyRef Name="StudentId"/>
+				</Key>
+				<Property Name="StudentId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="LegalLastName" Type="Edm.String"/>
+				<Property Name="LegalFirstName" Type="Edm.String"/>
+				<Property Name="PreferredLastName" Type="Edm.String"/>
+				<Property Name="PreferredFirstName" Type="Edm.String"/>
+				<Property Name="MiddleName" Type="Edm.String"/>
+				<Property Name="AdmissionNumber" Type="Edm.String"/>
+				<Property Name="UPN" Type="Edm.String"/>
+				<Property Name="DateOfBirth" Nullable="false" Type="Edm.DateTimeOffset"/>
+				<Property Name="DateOfEntry" Nullable="false" Type="Edm.DateTimeOffset"/>
+				<Property Name="DateOfLeaving" Type="Edm.DateTimeOffset"/>
+				<Property Name="Gender" Type="Edm.String"/>
+				<Property Name="EnrolmentStatus" Type="Edm.String"/>
+				<Property Name="AutumnBorn" Type="Edm.String"/>
+				<Property Name="SpringBorn" Type="Edm.String"/>
+				<Property Name="SummerBorn" Type="Edm.String"/>
+				<Property Name="Ethnicity" Type="Edm.String"/>
+				<Property Name="EthnicityCategory" Type="Edm.String"/>
+				<Property Name="EAL" Type="Edm.String"/>
+				<Property Name="FSM" Type="Edm.String"/>
+				<Property Name="GiftedAndTalented" Type="Edm.String"/>
+				<Property Name="LAC" Type="Edm.String"/>
+				<Property Name="EverFSM6" Type="Edm.String"/>
+				<Property Name="FSMExpanded" Type="Edm.String"/>
+				<Property Name="FSMTargeted" Type="Edm.String"/>
+				<Property Name="FSMEligibilityVerificationDate" Type="Edm.String"/>
+				<Property Name="PupilPremium" Type="Edm.String"/>
+				<Property Name="Provision" Type="Edm.String"/>
+				<Property Name="SENNeed" Type="Edm.String"/>
+				<Property Name="AdoptedFromCare" Type="Edm.String"/>
+				<Property Name="House" Type="Edm.String"/>
+				<Property Name="TutorGroup" Type="Edm.String"/>
+				<Property Name="YearGroup" Type="Edm.String"/>
+				<Property Name="ExcludedfromKS4HFA" Nullable="false" Type="Edm.Boolean"/>
+				<Property Name="PupilPremiumLastCensus" Type="Edm.String"/>
+				<Property Name="FSMLastCensus" Type="Edm.String"/>
+				<Property Name="HomePostCode" Type="Edm.String"/>
+				<Property Name="AttainmentLevel" Type="Edm.String"/>
+				<Property Name="KS2FineLevel" Type="Edm.Decimal"/>
+				<Property Name="ServiceChildCode" Type="Edm.String"/>
+				<Property Name="ServiceChildDescription" Type="Edm.String"/>
+				<Property Name="HomeAddressFields" Type="Edm.String"/>
+				<Property Name="NCYearGroup" Type="Edm.String"/>
+				<Property Name="Disability" Type="Edm.String"/>
+				<Property Name="FirstLanguage" Type="Edm.String"/>
+				<Property Name="SecondLanguage" Type="Edm.String"/>
+				<Property Name="HomeLanguage" Type="Edm.String"/>
+				<Property Name="TermOfLeaving" Type="Edm.String"/>
+				<Property Name="TravelMode" Type="Edm.String"/>
+				<Property Name="UCI" Type="Edm.String"/>
+				<Property Name="ULN" Type="Edm.String"/>
+				<Property Name="YSSA" Type="Edm.String"/>
+			</EntityType>
+			<EntityType Name="HeadlineFigures">
+				<Key>
+					<PropertyRef Name="StudentId"/>
+					<PropertyRef Name="AcademicYear"/>
+				</Key>
+				<Property Name="StudentId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="AcademicYear" Nullable="false" Type="Edm.String"/>
+				<Property Name="AssessmentType" Type="Edm.String"/>
+				<Property Name="YearGroup" Type="Edm.String"/>
+				<Property Name="Term" Type="Edm.String"/>
+				<Property Name="IsExcludedfromHeadlineFigures" Type="Edm.String"/>
+				<Property Name="IsDualEnglishResult" Type="Edm.String"/>
+				<Property Name="EnglishSubjectName" Type="Edm.String"/>
+				<Property Name="EnglishResult" Type="Edm.String"/>
+				<Property Name="EnglishPoints" Type="Edm.Double"/>
+				<Property Name="MathsSubjectName" Type="Edm.String"/>
+				<Property Name="MathsResult" Type="Edm.String"/>
+				<Property Name="MathsPoints" Type="Edm.Double"/>
+				<Property Name="EBacc1SubjectName" Type="Edm.String"/>
+				<Property Name="EBacc1Result" Type="Edm.String"/>
+				<Property Name="EBacc1Points" Type="Edm.Double"/>
+				<Property Name="EBacc2SubjectName" Type="Edm.String"/>
+				<Property Name="EBacc2Result" Type="Edm.String"/>
+				<Property Name="EBacc2Points" Type="Edm.Double"/>
+				<Property Name="EBacc3SubjectName" Type="Edm.String"/>
+				<Property Name="EBacc3Result" Type="Edm.String"/>
+				<Property Name="EBacc3Points" Type="Edm.Double"/>
+				<Property Name="Other1SubjectName" Type="Edm.String"/>
+				<Property Name="Other1Result" Type="Edm.String"/>
+				<Property Name="Other1Points" Type="Edm.Double"/>
+				<Property Name="Other2SubjectName" Type="Edm.String"/>
+				<Property Name="Other2Result" Type="Edm.String"/>
+				<Property Name="Other2Points" Type="Edm.Double"/>
+				<Property Name="Other3SubjectName" Type="Edm.String"/>
+				<Property Name="Other3Result" Type="Edm.String"/>
+				<Property Name="Other3Points" Type="Edm.Double"/>
+				<Property Name="KS2FinePoints" Type="Edm.Double"/>
+				<Property Name="EstimateSet" Type="Edm.String"/>
+				<Property Name="EnglishEstimate" Type="Edm.Double"/>
+				<Property Name="MathsEstimate" Type="Edm.Double"/>
+				<Property Name="EBaccEstimate" Type="Edm.Double"/>
+				<Property Name="OtherEstimate" Type="Edm.Double"/>
+				<Property Name="Attainment8Estimate" Type="Edm.Double"/>
+				<Property Name="Attainment8" Type="Edm.Double"/>
+				<Property Name="Progress8" Type="Edm.Double"/>
+				<Property Name="UnmodifiedProgress8" Type="Edm.Double"/>
+				<Property Name="EBaccAPS" Type="Edm.Double"/>
+				<Property Name="EbaccAchieved" Type="Edm.Boolean"/>
+				<Property Name="EbaccEntered" Type="Edm.Boolean"/>
+				<Property Name="AchievedGrade5AndAboveInEnglish" Type="Edm.Boolean"/>
+				<Property Name="AchievedGrade4AndAboveInEnglish" Type="Edm.Boolean"/>
+				<Property Name="AchievedGrade5AndAboveInMaths" Type="Edm.Boolean"/>
+				<Property Name="AchievedGrade4AndAboveInMaths" Type="Edm.Boolean"/>
+				<Property Name="AchievedEbaccScience" Type="Edm.Boolean"/>
+			</EntityType>
+			<EntityType Name="AttendanceSummary">
+				<Key>
+					<PropertyRef Name="StudentId"/>
+				</Key>
+				<Property Name="StudentId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="PossibleCount" Type="Edm.Int32"/>
+				<Property Name="PresentCount" Type="Edm.Int32"/>
+				<Property Name="PresentPercentage" Type="Edm.Double"/>
+				<Property Name="AuthorisedCount" Type="Edm.Int32"/>
+				<Property Name="AuthorisedPercentage" Type="Edm.Double"/>
+				<Property Name="UnauthorisedCount" Type="Edm.Int32"/>
+				<Property Name="UnauthorisedPercentage" Type="Edm.Double"/>
+				<Property Name="EducationalActivityCount" Type="Edm.Int32"/>
+				<Property Name="EducationalActivityPercentage" Type="Edm.Double"/>
+				<Property Name="PresentAndEducationalActivityCount" Type="Edm.Int32"/>
+				<Property Name="PresentAndEducationalActivityPercentage" Type="Edm.Double"/>
+			</EntityType>
+			<EntityType Name="StudentAttendance">
+				<Key>
+					<PropertyRef Name="StudentId"/>
+				</Key>
+				<Property Name="StudentId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="AttendanceId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="CalendarName" Type="Edm.String"/>
+				<Property Name="CollectionName" Type="Edm.String"/>
+				<Property Name="StartDate" Nullable="false" Type="Edm.DateTimeOffset"/>
+				<Property Name="EndDate" Nullable="false" Type="Edm.DateTimeOffset"/>
+				<Property Name="Instant" Nullable="false" Type="Edm.DateTimeOffset"/>
+				<Property Name="Mark" Type="Edm.String"/>
+				<Property Name="MarkMeaning" Type="Edm.String"/>
+				<Property Name="LateMinutes" Type="Edm.Int32"/>
+				<Property Name="Comment" Type="Edm.String"/>
+			</EntityType>
+			<EntityType Name="AssessmentResult">
+				<Key>
+					<PropertyRef Name="StudentId"/>
+				</Key>
+				<Property Name="StudentId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="StudentResultId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="AssessmentType" Type="Edm.String"/>
+				<Property Name="KeyStage" Type="Edm.String"/>
+				<Property Name="YearGroup" Type="Edm.String"/>
+				<Property Name="Term" Type="Edm.String"/>
+				<Property Name="Subject" Type="Edm.String"/>
+				<Property Name="Result" Type="Edm.String"/>
+				<Property Name="Points" Type="Edm.Double"/>
+				<Property Name="ResultDate" Nullable="false" Type="Edm.DateTimeOffset"/>
+			</EntityType>
+			<EntityType Name="ExamResult">
+				<Key>
+					<PropertyRef Name="AcademicYear"/>
+					<PropertyRef Name="Term"/>
+				</Key>
+				<Property Name="AcademicYear" Nullable="false" Type="Edm.String"/>
+				<Property Name="Term" Nullable="false" Type="Edm.String"/>
+				<Property Name="ExamResultId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="StudentId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="YearGroup" Type="Edm.String"/>
+				<Property Name="Subject" Type="Edm.String"/>
+				<Property Name="Result" Type="Edm.String"/>
+				<Property Name="Points" Type="Edm.Double"/>
+				<Property Name="ResultDate" Nullable="false" Type="Edm.DateTimeOffset"/>
+			</EntityType>
+			<EntityType Name="BehaviourEventRecord">
+				<Key>
+					<PropertyRef Name="StudentId"/>
+				</Key>
+				<Property Name="StudentId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="EventRecordId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="EventName" Type="Edm.String"/>
+				<Property Name="EventDescription" Type="Edm.String"/>
+				<Property Name="EventDate" Nullable="false" Type="Edm.DateTimeOffset"/>
+				<Property Name="Adjustment" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="Comment" Type="Edm.String"/>
+				<Property Name="InternalComment" Type="Edm.String"/>
+				<Property Name="CollectionName" Type="Edm.String"/>
+				<Property Name="DayOfWeek" Type="Edm.String"/>
+				<Property Name="EventType" Type="Edm.String"/>
+				<Property Name="StaffCode" Type="Edm.String"/>
+				<Property Name="Subject" Type="Edm.String"/>
+				<Property Name="Department" Type="Edm.String"/>
+				<Property Name="Room" Type="Edm.String"/>
+				<Property Name="TimetablePeriod" Type="Edm.String"/>
+			</EntityType>
+			<EntityType Name="StudentExclusion">
+				<Key>
+					<PropertyRef Name="StudentId"/>
+				</Key>
+				<Property Name="StudentId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="StudentExclusionID" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="DateOfIncident" Type="Edm.DateTimeOffset"/>
+				<Property Name="ExclusionType" Type="Edm.String"/>
+				<Property Name="ExclusionReason" Type="Edm.String"/>
+				<Property Name="ExclusionStartDate" Type="Edm.DateTimeOffset"/>
+				<Property Name="ExclusionStartSession" Type="Edm.String"/>
+				<Property Name="ExclusionEndDate" Type="Edm.DateTimeOffset"/>
+				<Property Name="NameOfParentContacted" Type="Edm.String"/>
+				<Property Name="DateOfPhoneCall" Type="Edm.DateTimeOffset"/>
+				<Property Name="ContactRecordTime" Type="Edm.String"/>
+				<Property Name="DateOfLetter" Type="Edm.DateTimeOffset"/>
+				<Property Name="DateGovernorsInformed" Type="Edm.DateTimeOffset"/>
+				<Property Name="DateLAInformed" Type="Edm.DateTimeOffset"/>
+				<Property Name="DateOfGovernorsSubCommittee" Type="Edm.DateTimeOffset"/>
+				<Property Name="TimeOfGovernorsSubCommittee" Type="Edm.String"/>
+				<Property Name="GovernorsDecision" Type="Edm.String"/>
+				<Property Name="DateDecisionNotified" Type="Edm.DateTimeOffset"/>
+				<Property Name="DateAppealRequested" Type="Edm.DateTimeOffset"/>
+				<Property Name="AppealDate" Type="Edm.DateTimeOffset"/>
+				<Property Name="AppealDecision" Type="Edm.String"/>
+				<Property Name="DateOfReinstatement" Type="Edm.DateTimeOffset"/>
+				<Property Name="TotalNumberOfExcludedDays" Type="Edm.Decimal"/>
+				<Property Name="NumberOfSessions" Type="Edm.Int32"/>
+				<Property Name="ExclusionDecisionMadeBy" Type="Edm.String"/>
+				<Property Name="ReturnDate" Type="Edm.DateTimeOffset"/>
+			</EntityType>
+			<EntityType Name="EbaccResults">
+				<Key>
+					<PropertyRef Name="StudentId"/>
+					<PropertyRef Name="AcademicYear"/>
+				</Key>
+				<Property Name="StudentId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="AcademicYear" Nullable="false" Type="Edm.String"/>
+				<Property Name="AssessmentType" Type="Edm.String"/>
+				<Property Name="YearGroup" Type="Edm.String"/>
+				<Property Name="Term" Type="Edm.String"/>
+				<Property Name="EnglishSubjectName" Type="Edm.String"/>
+				<Property Name="EnglishResult" Type="Edm.String"/>
+				<Property Name="EnglishPoints" Type="Edm.Double"/>
+				<Property Name="MathsSubjectName" Type="Edm.String"/>
+				<Property Name="MathsResult" Type="Edm.String"/>
+				<Property Name="MathsPoints" Type="Edm.Double"/>
+				<Property Name="Science1SubjectName" Type="Edm.String"/>
+				<Property Name="Science1Result" Type="Edm.String"/>
+				<Property Name="Science1Points" Type="Edm.Double"/>
+				<Property Name="Science2SubjectName" Type="Edm.String"/>
+				<Property Name="Science2Result" Type="Edm.String"/>
+				<Property Name="Science2Points" Type="Edm.Double"/>
+				<Property Name="HumanitiesSubjectName" Type="Edm.String"/>
+				<Property Name="HumanitiesResult" Type="Edm.String"/>
+				<Property Name="HumanitiesPoints" Type="Edm.Double"/>
+				<Property Name="LanguageSubjectName" Type="Edm.String"/>
+				<Property Name="LanguageResult" Type="Edm.String"/>
+				<Property Name="LanguagePoints" Type="Edm.Double"/>
+				<Property Name="EBaccAPS" Type="Edm.Double"/>
+			</EntityType>
+			<EntityType Name="StudentClass">
+				<Key>
+					<PropertyRef Name="StudentId"/>
+				</Key>
+				<Property Name="StudentId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="ClassId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="ClassName" Type="Edm.String"/>
+				<Property Name="Subject" Type="Edm.String"/>
+				<Property Name="StartDate" Nullable="false" Type="Edm.DateTimeOffset"/>
+				<Property Name="EndDate" Type="Edm.DateTimeOffset"/>
+				<Property Name="YearGroup" Type="Edm.String"/>
+				<Property Name="MainTeacher" Type="Edm.String"/>
+			</EntityType>
+			<EntityType Name="FineAssessmentResult">
+				<Key>
+					<PropertyRef Name="StudentId"/>
+				</Key>
+				<Property Name="StudentId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="FineAssessmentResultId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="FineAssessmentQuestion" Type="Edm.String"/>
+				<Property Name="AssessmentType" Type="Edm.String"/>
+				<Property Name="YearGroup" Type="Edm.String"/>
+				<Property Name="Term" Type="Edm.String"/>
+				<Property Name="Subject" Type="Edm.String"/>
+				<Property Name="Result" Type="Edm.String"/>
+				<Property Name="ResultDate" Nullable="false" Type="Edm.DateTimeOffset"/>
+			</EntityType>
+			<EntityType Name="Staff">
+				<Key>
+					<PropertyRef Name="StaffId"/>
+				</Key>
+				<Property Name="StaffId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="LegalLastName" Type="Edm.String"/>
+				<Property Name="LegalFirstName" Type="Edm.String"/>
+				<Property Name="PreferredLastName" Type="Edm.String"/>
+				<Property Name="PreferredFirstName" Type="Edm.String"/>
+				<Property Name="MiddleName" Type="Edm.String"/>
+				<Property Name="StaffCode" Type="Edm.String"/>
+				<Property Name="Gender" Type="Edm.String"/>
+				<Property Name="Ethnicity" Type="Edm.String"/>
+				<Property Name="EthnicityCategory" Type="Edm.String"/>
+				<Property Name="StartDate" Nullable="false" Type="Edm.DateTimeOffset"/>
+				<Property Name="EndDate" Type="Edm.DateTimeOffset"/>
+				<Property Name="FullTime" Type="Edm.String"/>
+				<Property Name="JobTitle" Type="Edm.String"/>
+				<Property Name="Title" Type="Edm.String"/>
+			</EntityType>
+			<EntityType Name="StaffAbsence">
+				<Key>
+					<PropertyRef Name="StaffId"/>
+				</Key>
+				<Property Name="StaffId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="StaffAbsenceId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="StartDate" Nullable="false" Type="Edm.DateTimeOffset"/>
+				<Property Name="EndDate" Type="Edm.DateTimeOffset"/>
+				<Property Name="Duration" Type="Edm.Decimal"/>
+				<Property Name="Notes" Type="Edm.String"/>
+				<Property Name="Reason" Type="Edm.String"/>
+				<Property Name="IllnessCategory" Type="Edm.String"/>
+				<Property Name="PayDecision" Type="Edm.String"/>
+			</EntityType>
+			<EntityType Name="StaffAcademicQualification">
+				<Key>
+					<PropertyRef Name="StaffId"/>
+				</Key>
+				<Property Name="StaffId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="AcademicQualificationRecordId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="AcademicQualificationType" Type="Edm.String"/>
+				<Property Name="MainSubject" Type="Edm.String"/>
+				<Property Name="SecondSubject" Type="Edm.String"/>
+			</EntityType>
+			<EntityType Name="StaffDisability">
+				<Key>
+					<PropertyRef Name="StaffId"/>
+				</Key>
+				<Property Name="StaffId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="DisabilityRecordId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="DisabilityName" Type="Edm.String"/>
+				<Property Name="DisabilityDescription" Type="Edm.String"/>
+			</EntityType>
+			<EntityType Name="StaffMedicalCondition">
+				<Key>
+					<PropertyRef Name="StaffId"/>
+				</Key>
+				<Property Name="StaffId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="MedicalConditionRecordId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="MedicalConditionName" Type="Edm.String"/>
+				<Property Name="MedicalConditionDescription" Type="Edm.String"/>
+				<Property Name="BloodGroup" Type="Edm.String"/>
+				<Property Name="NhsNumber" Type="Edm.String"/>
+			</EntityType>
+			<EntityType Name="StaffQualification">
+				<Key>
+					<PropertyRef Name="StaffId"/>
+				</Key>
+				<Property Name="StaffId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="QualificationRecordId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="QualifiedTeacherType" Type="Edm.String"/>
+				<Property Name="TeacherStatus" Type="Edm.String"/>
+				<Property Name="QTSRoute" Type="Edm.String"/>
+			</EntityType>
+			<EntityType Name="StaffReligiousAffiliation">
+				<Key>
+					<PropertyRef Name="StaffId"/>
+				</Key>
+				<Property Name="StaffId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="ReligiousAffiliationRecordId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="ReligiousAffiliationName" Type="Edm.String"/>
+				<Property Name="ReligiousAffiliationDescription" Type="Edm.String"/>
+			</EntityType>
+			<EntityType Name="StaffRole">
+				<Key>
+					<PropertyRef Name="StaffId"/>
+				</Key>
+				<Property Name="StaffId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="StaffRoleRecordId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="RoleDescription" Type="Edm.String"/>
+				<Property Name="StartDate" Nullable="false" Type="Edm.DateTimeOffset"/>
+				<Property Name="EndDate" Type="Edm.DateTimeOffset"/>
+			</EntityType>
+			<EntityType Name="StaffSubject">
+				<Key>
+					<PropertyRef Name="StaffId"/>
+				</Key>
+				<Property Name="StaffId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="SubjectDescription" Type="Edm.String"/>
+				<Property Name="SubjectClassification" Type="Edm.String"/>
+			</EntityType>
+			<EntityType Name="CurriculumSubject">
+				<Key>
+					<PropertyRef Name="SubjectID"/>
+				</Key>
+				<Property Name="SubjectID" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="SubjectName" Type="Edm.String"/>
+				<Property Name="StartDate" Nullable="false" Type="Edm.DateTimeOffset"/>
+				<Property Name="EndDate" Type="Edm.DateTimeOffset"/>
+				<Property Name="TimetableCode" Type="Edm.String"/>
+				<Property Name="SubjectGroup" Type="Edm.String"/>
+				<Property Name="DfEClassification" Type="Edm.String"/>
+				<Property Name="DiscountCode" Type="Edm.String"/>
+			</EntityType>
+			<EntityType Name="CurriculumSubjectStaff">
+				<Key>
+					<PropertyRef Name="SubjectID"/>
+					<PropertyRef Name="StaffID"/>
+				</Key>
+				<Property Name="SubjectID" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="StaffID" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="Role" Type="Edm.String"/>
+				<Property Name="StartDate" Nullable="false" Type="Edm.DateTimeOffset"/>
+				<Property Name="EndDate" Type="Edm.DateTimeOffset"/>
+			</EntityType>
+			<EntityType Name="Collection">
+				<Key>
+					<PropertyRef Name="CollectionID"/>
+				</Key>
+				<Property Name="CollectionID" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="CollectionTypeName" Type="Edm.String"/>
+				<Property Name="CollectionTypeDescription" Type="Edm.String"/>
+				<Property Name="CollectionName" Type="Edm.String"/>
+				<Property Name="CollectionDescription" Type="Edm.String"/>
+				<Property Name="StartDate" Type="Edm.DateTimeOffset"/>
+				<Property Name="EndDate" Type="Edm.DateTimeOffset"/>
+			</EntityType>
+			<EntityType Name="CollectionAssociate">
+				<Key>
+					<PropertyRef Name="CollectionID"/>
+					<PropertyRef Name="StudentID"/>
+				</Key>
+				<Property Name="CollectionID" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="StudentID" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="StartDate" Type="Edm.DateTimeOffset"/>
+				<Property Name="EndDate" Type="Edm.DateTimeOffset"/>
+			</EntityType>
+			<EntityType Name="CollectionHierarchy">
+				<Key>
+					<PropertyRef Name="CollectionHierarchyID"/>
+				</Key>
+				<Property Name="CollectionHierarchyID" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="CollectionID" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="ParentCollectionID" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="StartDate" Type="Edm.DateTimeOffset"/>
+				<Property Name="EndDate" Type="Edm.DateTimeOffset"/>
+			</EntityType>
+			<EntityType Name="CollectionExecutive">
+				<Key>
+					<PropertyRef Name="CollectionExecutiveID"/>
+				</Key>
+				<Property Name="CollectionExecutiveID" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="CollectionID" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="StaffID" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="StartDate" Type="Edm.DateTimeOffset"/>
+				<Property Name="EndDate" Type="Edm.DateTimeOffset"/>
+				<Property Name="CollectionRoleTypeDescription" Type="Edm.String"/>
+			</EntityType>
+			<EntityType Name="CTFAssessmentResult">
+				<Key>
+					<PropertyRef Name="StudentId"/>
+				</Key>
+				<Property Name="StudentId" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="Stage" Type="Edm.String"/>
+				<Property Name="Year" Type="Edm.String"/>
+				<Property Name="Subject" Type="Edm.String"/>
+				<Property Name="Component" Type="Edm.String"/>
+				<Property Name="AssessmentType" Type="Edm.String"/>
+				<Property Name="ResultType" Type="Edm.String"/>
+				<Property Name="ResultStatus" Type="Edm.String"/>
+				<Property Name="Result" Type="Edm.String"/>
+				<Property Name="ResultDate" Type="Edm.DateTimeOffset"/>
+				<Property Name="Locale" Type="Edm.String"/>
+				<Property Name="GradeDescription" Type="Edm.String"/>
+				<Property Name="GradeValue" Type="Edm.Decimal"/>
+			</EntityType>
+			<EntityType Name="School">
+				<Key>
+					<PropertyRef Name="SchoolID"/>
+				</Key>
+				<Property Name="SchoolID" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="SchoolName" Type="Edm.String"/>
+				<Property Name="LAName" Type="Edm.String"/>
+				<Property Name="LANumber" Type="Edm.String"/>
+				<Property Name="EstablishmentNumber" Type="Edm.String"/>
+				<Property Name="URN" Type="Edm.String"/>
+				<Property Name="IsCurrentSchool" Nullable="false" Type="Edm.Boolean"/>
+			</EntityType>
+			<EntityType Name="StudentMeal">
+				<Key>
+					<PropertyRef Name="StudentID"/>
+				</Key>
+				<Property Name="StudentID" Nullable="false" Type="Edm.Int32"/>
+				<Property Name="StartDate" Nullable="false" Type="Edm.DateTimeOffset"/>
+				<Property Name="EndDate" Type="Edm.DateTimeOffset"/>
+				<Property Name="EvidenceProvided" Type="Edm.String"/>
+				<Property Name="ReviewDate" Type="Edm.DateTimeOffset"/>
+				<Property Name="FSMTaken" Nullable="false" Type="Edm.Boolean"/>
+			</EntityType>
+		</Schema>
+		<Schema Namespace="Default" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+			<EntityContainer Name="Container">
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.Student" Name="Students"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.HeadlineFigures" Name="HeadlineFigures"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.AttendanceSummary" Name="AttendanceSummary"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.StudentAttendance" Name="StudentAttendances"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.AssessmentResult" Name="AssessmentResults"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.ExamResult" Name="ExamResults"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.BehaviourEventRecord" Name="BehaviourEventRecords"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.StudentExclusion" Name="StudentExclusions"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.EbaccResults" Name="EbaccResults"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.StudentClass" Name="StudentClasses"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.FineAssessmentResult" Name="FineAssessmentResults"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.Staff" Name="Staff"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.StaffAbsence" Name="StaffAbsences"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.StaffAcademicQualification" Name="StaffAcademicQualifications"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.StaffDisability" Name="StaffDisabilities"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.StaffMedicalCondition" Name="StaffMedicalConditions"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.StaffQualification" Name="StaffQualifications"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.StaffReligiousAffiliation" Name="StaffReligiousAffiliations"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.StaffRole" Name="StaffRoles"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.StaffSubject" Name="StaffSubjects"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.CurriculumSubject" Name="CurriculumSubjects"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.CurriculumSubjectStaff" Name="CurriculumSubjectStaff"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.Collection" Name="Collections"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.CollectionAssociate" Name="CollectionAssociates"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.CollectionHierarchy" Name="CollectionHierarchy"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.CollectionExecutive" Name="CollectionExecutives"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.CTFAssessmentResult" Name="CTFAssessmentResults"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.School" Name="Schools"/>
+				<EntitySet EntityType="Bromcom.Nucleus.ODataAPI.Models.DataEntities.StudentMeal" Name="StudentMeals"/>
+			</EntityContainer>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
